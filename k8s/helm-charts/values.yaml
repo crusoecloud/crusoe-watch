@@ -15,9 +15,9 @@ global:
   ccr:
     endpointFormat: "registry.%s.ccr.crusoecloudcompute.com"
     projects:
-      us-east1-a:
-        ghcr: "cwa-useast1a-ghcr.07bc97e8"
-        dockerhub: "cwa-useast1a-dockerhub.07bc97e8"
+      eu-iceland2-a:
+        ghcr: "cwa-ghcr.33d1748b"
+        dockerhub: "cwa-docker.33d1748b"
 
 proxy:
   enabled: false
@@ -616,7 +616,7 @@ vector:
 
   configReloader:
     imageRepository: crusoecloud/crusoe-watch-agent/vector-config-reloader
-    imageTag: v0.2.29
+    imageTag: v0.2.32
 
   # extraContainers -- Extra Containers to be added to the Vector Pods.
   # This also supports template content, which will eventually be converted to yaml.

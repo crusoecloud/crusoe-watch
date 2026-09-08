@@ -98,11 +98,16 @@ declare -A -r CCR_DOCKERHUB_PROJECT_MAP=(
   ["us-east1-a"]="cwa-useast1a-dockerhub.07bc97e8"
 )
 
+# dcgm-exporter release, as <exporter version>-<DCGM version>. This is both the
+# upstream git tag (native builds clone it) and the base of the container image
+# tag (docker mode appends the base OS), so both install modes ship the same exporter.
+DCGM_EXPORTER_RELEASE="4.3.1-4.4.0"
+
 # dcgm-exporter docker image version map
 declare -A -r DCGM_EXPORTER_VERSION_MAP=(
-  ["20.04"]="4.3.1-4.4.0-ubi9"
-  ["22.04"]="4.3.1-4.4.0-ubuntu22.04"
-  ["24.04"]="4.3.1-4.4.0-ubi9"
+  ["20.04"]="${DCGM_EXPORTER_RELEASE}-ubi9"
+  ["22.04"]="${DCGM_EXPORTER_RELEASE}-ubuntu22.04"
+  ["24.04"]="${DCGM_EXPORTER_RELEASE}-ubi9"
 )
 
 # CLI args parsing
@@ -415,7 +420,10 @@ install_dcgm_exporter_native() {
     export PATH="/usr/local/go/bin:$PATH"
   fi
 
-  git clone https://github.com/NVIDIA/dcgm-exporter.git "$BUILD_DIR" || error_exit "Failed to clone dcgm-exporter."
+  # Pinned to a tag.
+  git clone --depth 1 --branch "$DCGM_EXPORTER_RELEASE" \
+    https://github.com/NVIDIA/dcgm-exporter.git "$BUILD_DIR" \
+    || error_exit "Failed to clone dcgm-exporter $DCGM_EXPORTER_RELEASE."
   make -C "$BUILD_DIR" binary || error_exit "Failed to build dcgm-exporter."
   make -C "$BUILD_DIR" install || error_exit "Failed to install dcgm-exporter."
   rm -rf "$BUILD_DIR"
