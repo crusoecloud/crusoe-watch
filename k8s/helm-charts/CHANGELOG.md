@@ -1,8 +1,17 @@
 # Changelog
 
+## 0.3.37 (2026-09-08)
+
+**Features**
+
+- Collect GPU and network operator deployment logs for improved observability ([c420d2f](https://github.com/crusoecloud/crusoe-watch-agent/commit/c420d2f))
+- Add `global.registry` flag to pull all container images from CCR (`ccr`) instead of GitHub Container Registry (`ghcr`, default) ([fe33c8e](https://github.com/crusoecloud/crusoe-watch-agent/commit/fe33c8e))
+
+
 ## 0.3.36 (2026-08-28)
 
 - Bump crusoe-metrics-exporter image to 0.2.9
+
 
 ## 0.3.35 (2026-08-25)
 

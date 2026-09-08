@@ -92,10 +92,10 @@ IMAGE_REGISTRY="ghcr"
 # each region has a separate project mirroring ghcr.io and docker.io.
 CCR_ENDPOINT_FORMAT="registry.%s.ccr.crusoecloudcompute.com"
 declare -A -r CCR_GHCR_PROJECT_MAP=(
-  ["us-east1-a"]="cwa-useast1a-ghcr.07bc97e8"
+  ["eu-iceland2-a"]="cwa-ghcr.33d1748b"
 )
 declare -A -r CCR_DOCKERHUB_PROJECT_MAP=(
-  ["us-east1-a"]="cwa-useast1a-dockerhub.07bc97e8"
+  ["eu-iceland2-a"]="cwa-docker.33d1748b"
 )
 
 # dcgm-exporter release, as <exporter version>-<DCGM version>. This is both the

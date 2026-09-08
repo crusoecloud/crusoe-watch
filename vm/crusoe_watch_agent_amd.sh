@@ -53,10 +53,10 @@ IMAGE_REGISTRY="ghcr"
 # Keep in sync with crusoe_watch_agent.sh and k8s/helm-charts/values.yaml.
 CCR_ENDPOINT_FORMAT="registry.%s.ccr.crusoecloudcompute.com"
 declare -A -r CCR_GHCR_PROJECT_MAP=(
-  ["us-east1-a"]="cwa-useast1a-ghcr.07bc97e8"
+  ["eu-iceland2-a"]="cwa-ghcr.33d1748b"
 )
 declare -A -r CCR_DOCKERHUB_PROJECT_MAP=(
-  ["us-east1-a"]="cwa-useast1a-dockerhub.07bc97e8"
+  ["eu-iceland2-a"]="cwa-docker.33d1748b"
 )
 
 CRUSOE_METRICS_EXPORTER_BIN="/usr/local/bin/crusoe-metrics-exporter"
